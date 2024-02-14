@@ -52,18 +52,20 @@ namespace ClaseService
         
         public List<Cliente> ObtenerFiltrado(string? localidad, string? nombre)
         {
+            List<Cliente> listadoClientesfiltrado = new List<Cliente>();
+            listadoClientesfiltrado = listadoClientes;
             if (localidad == null && nombre == null)
             {
                 if (listadoClientes.Count != 0)
                 {
-                    return listadoClientes;
+                    return listadoClientesfiltrado;
                 }
             }
             else
             {
                 if (localidad == null)
                 {
-                    foreach (var cliente in listadoClientes)
+                    foreach (var cliente in listadoClientesfiltrado)
                     {
                         if (cliente.LocalidadCliente == localidad)
                         {
@@ -73,11 +75,18 @@ namespace ClaseService
                 }
                 else
                 {
-                    Cliente? clientePorNombre = ArchivoClientes.ObtenerCliente().FirstOrDefault(r => r.NombreCliente == nombre);
+                    foreach (var cliente in listadoClientesfiltrado)
+                    {
+                        if (cliente.NombreCliente == nombre)
+                        {
+                            listadoClientes.Add(cliente);
+                        }
+                    }
                 }
-            }
 
+            return listadoClientesfiltrado;
         }
+            return listadoClientesfiltrado;
         
     }
 }

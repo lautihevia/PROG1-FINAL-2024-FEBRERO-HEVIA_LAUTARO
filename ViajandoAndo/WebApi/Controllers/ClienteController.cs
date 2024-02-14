@@ -48,10 +48,19 @@ namespace Api.Controllers
             return BadRequest("El listado no existe");
         }
 
-        
-        
-        
-        
+
+        [HttpGet("{localidad, nombre}")]
+        public IActionResult ObtenerClientesFiltrado(string localidad, string nombre)
+        {
+            var validar = clienteService.ObtenerFiltrado(localidad, nombre);
+            if (validar != null)
+            {
+                return Ok(validar);
+            }
+            return BadRequest($"");
+        }
+
+
 
 
     }
