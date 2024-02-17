@@ -58,6 +58,7 @@ namespace ClaseService
             {
                 if (listadoClientes.Count != 0)
                 {
+                    //CORRECCION: NO SE FILTRA LOS QUE ESTAN ELIMINADOS.
                     return listadoClientesfiltrado;
                 }
             }
@@ -84,6 +85,7 @@ namespace ClaseService
                     }
                 }
 
+//CORRECCION: NO PUEDO FILTRAR POR AMBOS PRÁMETROS SI QUISIERA.
             return listadoClientesfiltrado;
         }
             return listadoClientesfiltrado;

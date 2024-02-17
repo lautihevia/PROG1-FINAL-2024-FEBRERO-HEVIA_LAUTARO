@@ -37,6 +37,7 @@ namespace TestClientes
         {
             Validacion clienteNuevo = clienteService.AgregarCliente(clienteDto);
 
+//Correcci´ón: faltan dos assertsmas. El test era que no se pueda cargar.
             Assert.That(clienteNuevo.Success, Is.True);
         }
     }
